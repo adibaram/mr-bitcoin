@@ -3,8 +3,8 @@ import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
 import { inject, observer } from 'mobx-react';
 
-// import PrivateRoute from './components/PrivateRoute';
-// import MainNav from './components/MainNav';
+import PrivateRoute from '../src/components/PrivateRoute';
+import MainNav from '../src/components/NavBar';
 
 import SignupPage from '../src/pages/SignupPage';
 import HomePage from '../src/pages/HomePage';
@@ -21,11 +21,24 @@ import './App.scss';
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="app">
+        <Router>
+          <div>
+            {this.props.store.userStore.user && <MainNav />}
 
-       <HomePage />
-
-
+            <div className="app-content">
+              <Switch>
+                <Route path="/signup" component={SignupPage} />
+                {/* <PrivateRoute path="/contacts/new" component={ContactEdit} /> */}
+                {/* <PrivateRoute path="/contacts/edit/:id?" component={ContactEdit} /> */}
+                <PrivateRoute path="/contacts/:id" component={ContactDetails} />
+                <PrivateRoute path="/contacts" component={ContactPage} />
+                <PrivateRoute path="/statistics" component={StatisticPage} />
+                <PrivateRoute exact path="/" component={HomePage} />  
+              </Switch>
+            </div>
+          </div>
+        </Router>
       </div>
     );
   }
