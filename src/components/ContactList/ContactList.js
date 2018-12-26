@@ -1,7 +1,7 @@
 import React from 'react';
 import ContactPreview from '../ContactPreview'
 
-import './ContactList.css';
+import './ContactList.scss';
 
 const ContactList = (props) => {
   const contactsPreview = props.contacts.map( (contact, i) => {

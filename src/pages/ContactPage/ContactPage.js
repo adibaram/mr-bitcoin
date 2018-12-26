@@ -3,7 +3,7 @@ import contactService from '../../services/ContactService'
 
 import ContactList from '../../components/ContactList'
 
-import './ContactPage.css'
+import './ContactPage.scss'
 
 class ContactPage extends Component {
   state = {contacts: []}

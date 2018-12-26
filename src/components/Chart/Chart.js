@@ -1,7 +1,7 @@
 import React from 'react';
 import { Sparklines, SparklinesLine } from 'react-sparklines';
 
-import './Chart.css'
+import './Chart.scss'
 
 const Chart = (props) => {
   

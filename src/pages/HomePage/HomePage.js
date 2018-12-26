@@ -5,7 +5,7 @@ import userService from '../../services/UserService'
 
 import coinsImg from '../../assets/icons/coins.png'
 import bitcoinImg from '../../assets/icons/bitcoin.png'
-import './HomePage.css'
+import './HomePage.scss'
 
 class HomePage extends Component {
   

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Chart from '../../components/Chart';
 
 import bitcoinService from '../../services/BitcoinService'
-import './StatisticPage.css'
+import './StatisticPage.scss'
 
 class StatisticPage extends Component {
   

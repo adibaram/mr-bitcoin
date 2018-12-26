@@ -3,7 +3,7 @@ import contactService from '../../services/ContactService'
 
 import imgAvatar from '../../assets/img_avatar.png'
 
-import './ContactDetails.css'
+import './ContactDetails.scss'
 
 class ContactDetails  extends Component {
   
