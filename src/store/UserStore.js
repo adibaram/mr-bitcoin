@@ -1,6 +1,7 @@
 import { observable, action, computed  } from 'mobx';
 import userService from '../services/UserService'
 export class UserStore {
+    
     @observable user = null;
     @observable isLoading = true;
     @observable isProcessing = true;

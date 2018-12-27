@@ -1,5 +1,6 @@
 import React from 'react';
-import ContactPreview from '../ContactPreview'
+import { Link } from 'react-router-dom';
+import ContactPreview from '../ContactPreview';
 
 import './ContactList.scss';
 
@@ -7,9 +8,9 @@ const ContactList = (props) => {
   const contactsPreview = props.contacts.map( (contact, i) => {
       return (
           <li key={contact._id} className="contacts-list-item">
-            <ContactPreview contact={contact} />
+            <Link className="userLink" to={`/contacts/${contact._id}`}><ContactPreview contact={contact} /></Link>
           </li>
-      )
+      );
   });
     
   return (

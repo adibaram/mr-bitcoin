@@ -7,6 +7,10 @@
   line-height: 50px;
   border-radius: 25px;
   background-color: #f1f1f1; 
+
+  &:hover{
+    background-color: darken(#f1f1f1,10%);
+}
 }
   
 .contact-preview img {

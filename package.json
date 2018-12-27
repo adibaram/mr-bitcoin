@@ -51,6 +51,7 @@
     "react-sparklines": "^1.7.0",
     "resolve": "1.8.1",
     "sass-loader": "7.1.0",
+    "serviceworker-webpack-plugin": "^1.0.1",
     "style-loader": "0.23.0",
     "terser-webpack-plugin": "1.1.0",
     "url-loader": "1.1.1",

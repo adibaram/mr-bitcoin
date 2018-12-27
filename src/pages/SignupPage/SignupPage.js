@@ -3,12 +3,12 @@ import { inject, observer } from 'mobx-react';
 import { observable  } from 'mobx';
 
 import bitcoinImg from '../../assets/icons/bitcoin.png'
-import './SignupPage.css'
+import './SignupPage.scss'
 
 @inject('store')
 @observer
 class SignupPage extends Component {
-  @observable name = ''
+  @observable name = '';
 
   onInputChange = (event) => {
     this.name = event.target.value
@@ -26,10 +26,12 @@ class SignupPage extends Component {
       <div className="signup">
         <div className="signup-icon">
           <img src={bitcoinImg} alt="bitcoin" width="64px" height="64px" />
+          <div className="signup-title">Welcome to Bitcoin transfer system</div>
+          <div className="signup-title">You can manage you Bitcoins and transfer to other users</div>
         </div>
 
         <form onSubmit={this.onFormSubmit} className="signup-form">
-            <div className="signup-title">Please enter your name:</div>
+            <div className="signup-title">First, please enter your name:</div>
 
             <input value={this.name} onChange={this.onInputChange} />
             

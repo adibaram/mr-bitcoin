@@ -13,6 +13,10 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+
+    button {
+        cursor: pointer;
+    }
 }
 .signup-title {
     margin: 0 0 10px 0;

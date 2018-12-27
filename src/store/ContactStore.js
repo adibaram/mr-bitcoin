@@ -1,5 +1,6 @@
 import { observable, action  } from 'mobx';
-import contactService from '../services/ContactService'
+import contactService from '../services/ContactService';
+
 export class ContactStore {
     @observable contacts = []
     @observable selectedContact = {}
