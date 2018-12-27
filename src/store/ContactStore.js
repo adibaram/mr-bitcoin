@@ -10,42 +10,42 @@ export class ContactStore {
     
     @action
     async fetchContacts(filterBy = null) {
-        this.isLoading = true
-        this.contacts = await contactService.getContacts(filterBy)
-        this.isLoading = false
+        this.isLoading = true;
+        this.contacts = await contactService.getContacts(filterBy);
+        this.isLoading = false;
     }
 
     @action
     async fetchContact(id) {
-        this.status = ''
-        this.isLoading = true
+        this.status = '';
+        this.isLoading = true;
         try {
-            this.selectedContact = await contactService.getContactById(id)
-            this.nextContactId  = await contactService.getNextContactId(id)
+            this.selectedContact = await contactService.getContactById(id);
+            this.nextContactId  = await contactService.getNextContactId(id);
         } catch(err) {
-            this.status = 'error'
+            this.status = 'error';
         } finally{
-            this.isLoading = false
+            this.isLoading = false;
         }
     }
 
     @action
     async saveContact(contact) {
-        const updatedContact = await contactService.saveContact(contact)
+        const updatedContact = await contactService.saveContact(contact);
         if (contact._id) {
-            const index = this.contacts.findIndex(c => c._id === contact._id)
-            this.contacts[index] = contact
+            const index = this.contacts.findIndex(c => c._id === contact._id);
+            this.contacts[index] = contact;
         } else {
-            this.contacts.push(updatedContact)
+            this.contacts.push(updatedContact);
         }
 
-        return updatedContact
+        return updatedContact;
     }
 
     @action
     async deleteContact(contact) {
-        if (!contact._id) return
-        await contactService.deleteContact(contact._id)
-        await this.fetchContacts()
+        if (!contact._id) return;
+        await contactService.deleteContact(contact._id);
+        await this.fetchContacts();
     }
 }

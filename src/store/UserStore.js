@@ -7,37 +7,37 @@ export class UserStore {
     @observable isProcessing = true;
 
     constructor(rootStore) {
-        this.rootStore = rootStore
-        this.user = userService.loadUser()
+        this.rootStore = rootStore;
+        this.user = userService.loadUser();
     }
     
     @action
     signup(name) {
-        this.isLoading = true
-        this.user = userService.signup(name)
-        this.isLoading = false
+        this.isLoading = true;
+        this.user = userService.signup(name);
+        this.isLoading = false;
     }
 
     @action
     transferCoins(contact, amount) {
-        this.isProcessing = true
-        this.user = userService.addMove(contact, amount)
-        this.isProcessing = false
+        this.isProcessing = true;
+        this.user = userService.addMove(contact, amount);
+        this.isProcessing = false;
     }
 
     @computed
     get isUserExist() {
-        return !!this.user
+        return !!this.user;
     }
 
     @computed
     get movesToCurrContact() {
-        const selectedContactId = this.rootStore.contactStore.selectedContact._id
-        return this.user.moves.filter(move => move.toId === selectedContactId)
+        const selectedContactId = this.rootStore.contactStore.selectedContact._id;
+        return this.user.moves.filter(move => move.toId === selectedContactId);
     }
 
     @computed
     get lastMoves() {
-        return this.user.moves.slice(0, 3)
+        return this.user.moves.slice(0, 3);
     }  
 }

@@ -3,7 +3,7 @@ import { computed } from 'mobx';
 import { inject, observer } from 'mobx-react';
 import {observable} from 'mobx';
 
-// import MovesList from '../../components/MovesList';
+import MovesList from '../../components/MovesList';
 import bitcoinService from '../../services/BitcoinService';
 
 import './HomePage.scss';
@@ -56,7 +56,7 @@ class HomePage extends Component {
               {this.imgArrow && <img src={this.imgArrow} alt="arrow" width="16px" height="16px"/> }
             </div>
           </div>
-          {/* <MovesList showContactName moves={this.props.store.userStore.lastMoves} title="Your last 3 Moves:"/> */}
+          <MovesList showContactName moves={this.props.store.userStore.lastMoves} title="Your last Moves:"/>
       </div>
     );
   }

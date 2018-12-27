@@ -12,36 +12,26 @@ import './ContactPage.scss';
 @observer
 
 class ContactPage extends Component {
-  state = {contacts: []}
 
   componentDidMount() {
-    contactService.getContacts().then(contacts => {
-      this.setState({contacts})
-
-    })
+    this.props.store.contactStore.fetchContacts();
   }
-
-  // componentDidMount() {
-  //   this.props.store.contactStore.fetchContacts()
-  //     .then(contacts => console.log('contacts', contacts));
-  //   console.log('contactStore', this.props.store.contactStore);
-  //   console.log('contacts', this.props.store.contactStore.fetchContacts());
-  // }
 
   contactSearch = ({search}) => {
-    this.props.store.contactStore.fetchContacts({term: search})
+    this.props.store.contactStore.fetchContacts({term: search});
   }
 
-  
+
   render() {
+    const contactStore = this.props.store.contactStore;
+
     return (
       <div className="contacts-page">
-
         <div className="search-container">
           <ContactFilter onFilter={this.contactSearch} />
         </div>
         <div className="contacts-container">
-            <ContactList contacts={this.state.contacts} />
+            <ContactList contacts={contactStore.contacts} />
         </div>
       </div>
     );
